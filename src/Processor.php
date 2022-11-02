@@ -77,6 +77,9 @@ class Processor
             $entry->description = $row['Description'];
             $entry->series_number = (int)$row['Series Number'];
             $entry->series_total = (int)$series_total;
+            $entry->attributes = [
+                ["trait_type" => "gender", "value" => $row['Gender']]
+            ];
 
             file_put_contents(
                 $this->out_dir . '/' . $row['Filename'] . '.json',
