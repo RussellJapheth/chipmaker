@@ -1,0 +1,16 @@
+{
+    "format": "CHIP-0007",
+    "name": "Pikachu",
+    "description": "Electric-type Pokémon with stretchy cheeks",
+    "minting_tool": "SuperMinter/2.5.2",
+    "sensitive_content": false,
+    "series_number": 0,
+    "series_total": 0,
+    "attributes": [],
+    "collection": {
+        "name": "Example Pokémon Collection",
+        "id": "e43fcfe6-1d5c-4d6e-82da-5de3aa8b3b57",
+        "attributes": []
+    },
+    "data": {}
+}
