@@ -51,9 +51,9 @@ Where `file.csv` is the source csv file and `./output` is the output directory.
 
 **Below is a sample csv file**
 
-> | Series Number | Filename    | Name        | Description           | UUID                           |
-> | ------------- | ----------- | ----------- | --------------------- | ------------------------------ |
-> | 1             | sample-file | Sample File | This is a sample file | xxxxxx-xxxxx-xxxxxx-xxxxx-xxxx |
+> | Series Number | Filename    | Name        | Description           | Gender | UUID                           |
+> | ------------- | ----------- | ----------- | --------------------- | ------ | ------------------------------ |
+> | 1             | sample-file | Sample File | This is a sample file | male   | xxxxxx-xxxxx-xxxxxx-xxxxx-xxxx |
 
 To display the help screen run
 
