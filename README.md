@@ -35,7 +35,28 @@ Here is the json file with the default values:
     "collection": {
         "name": "Example Pokémon Collection",
         "id": "e43fcfe6-1d5c-4d6e-82da-5de3aa8b3b57",
-        "attributes": []
+        "attributes": [
+            {
+                "type": "description",
+                "value": "Example Pokémon Collection is the best Pokémon collection. Get yours today!"
+            },
+            {
+                "type": "icon",
+                "value": "https://examplepokemoncollection.com/image/icon.png"
+            },
+            {
+                "type": "banner",
+                "value": "https://examplepokemoncollection.com/image/banner.png"
+            },
+            {
+                "type": "twitter",
+                "value": "ExamplePokemonCollection"
+            },
+            {
+                "type": "website",
+                "value": "https://examplepokemoncollection.com/"
+            }
+        ]
     },
     "data": {}
 }
