@@ -1,0 +1,12 @@
+{
+    "name": "russell/chipmaker",
+    "require": {
+        "league/csv": "^9.8",
+        "splitbrain/php-cli": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Russell\\Chipmaker\\": "src/"
+        }
+    }
+}
