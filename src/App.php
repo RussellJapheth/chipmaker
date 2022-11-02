@@ -63,8 +63,6 @@ class App extends CLI
             $out_dir = $dir;
         }
 
-        $this->info("Output directory: " . $out_dir);
-
         // Parse the options for the csv file
         if ($options->getOpt('file')) {
             $file = realpath($options->getOpt('file'));
@@ -80,6 +78,7 @@ class App extends CLI
             }
 
             $this->info("Loading csv file: " . $file);
+            $this->info("Output directory: " . $out_dir);
 
             // run
             $processor = new Processor($file, $out_dir);

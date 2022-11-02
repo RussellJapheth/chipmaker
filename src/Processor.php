@@ -3,6 +3,7 @@
 namespace Russell\Chipmaker;
 
 use League\Csv\Reader;
+use League\Csv\Writer;
 
 class Processor
 {
@@ -66,40 +67,44 @@ class Processor
      */
     private function run()
     {
-        $series_total = count($this->records);
-        $written = 0;
-
-        file_put_contents(
-            $this->out_dir . '/filename.output.csv',
-            'file,hash' . PHP_EOL
-        );
+        $series_total = end($this->records)['Series Number'];
+        reset($this->records);
 
         foreach ($this->records as $key => $row) {
             $entry = $this->template;
 
-            $entry->name = $row['NFT Name'];
+            $entry->name = $row['Name'];
             $entry->description = $row['Description'];
-            $entry->series_number = $key;
-            $entry->series_total = $series_total;
+            $entry->series_number = (int)$row['Series Number'];
+            $entry->series_total = (int)$series_total;
 
             file_put_contents(
-                $this->out_dir . '/' . $row['NFT Name'] . '.json',
+                $this->out_dir . '/' . $row['Filename'] . '.json',
                 json_encode($entry, JSON_PRETTY_PRINT)
             );
 
-            $metadata_sha256 = hash_file(
+            $json_sha256 = hash_file(
                 'sha256',
-                $this->out_dir . '/' . $row['NFT Name'] . '.json'
+                $this->out_dir . '/' . $row['Filename'] . '.json'
             );
 
-            file_put_contents(
-                $this->out_dir . '/filename.output.csv',
-                $row['NFT Name'] . '.json,' . $metadata_sha256 . PHP_EOL,
-                FILE_APPEND
-            );
-            $written++;
+            $this->records[$key]['json_sha256'] = $json_sha256;
         }
-        return (bool)$written;
+
+        $csv = Writer::createFromString();
+
+        //insert the header
+        $csv->insertOne([...$this->header, 'json_sha256']);
+
+        //insert all the records
+        $csv->insertAll($this->records);
+
+        $output_file = basename($this->file, '.csv');
+
+        return (bool)file_put_contents(
+            $this->out_dir . '/' . $output_file . '.output.csv',
+            $csv->toString()
+        );
     }
 
     /**
