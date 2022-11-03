@@ -69,71 +69,71 @@ class Processor
     protected function getAttributes(array $entry): array
     {
         $return = [];
-        $attributes = $entry['Attributes'];
+        $attributes = strtolower($entry['Attributes']);
 
         preg_match(
-            '/hair(:|;) {0,}([a-z ]+),?/m',
+            '/hair: {0,}([a-z ]+);/m',
             $attributes,
             $hair
         );
 
-        $return[] = ["trait_type" => "hair", "value" => $hair[2] ?? ""];
+        $return[] = ["trait_type" => "hair", "value" => $hair[1] ?? ""];
 
         preg_match(
-            '/eyes(:|;) {0,}([a-z ]+),?/m',
+            '/eyes: {0,}([a-z ]+);/m',
             $attributes,
             $eyes
         );
 
-        $return[] = ["trait_type" => "eyes", "value" => $eyes[2] ?? ""];
+        $return[] = ["trait_type" => "eyes", "value" => $eyes[1] ?? ""];
 
         preg_match(
-            '/teeth(:|;) {0,}([a-z ]+),?/m',
+            '/teeth: {0,}([a-z ]+);/m',
             $attributes,
             $teeth
         );
 
-        $return[] = ["trait_type" => "teeth", "value" => $teeth[2] ?? ""];
+        $return[] = ["trait_type" => "teeth", "value" => $teeth[1] ?? ""];
 
         preg_match(
-            '/clothing(:|;) {0,}([a-z ]+),?/m',
+            '/clothings?: {0,}([a-z ]+);/m',
             $attributes,
             $clothing
         );
 
-        $return[] = ["trait_type" => "clothing", "value" => $clothing[2] ?? ""];
+        $return[] = ["trait_type" => "clothing", "value" => $clothing[1] ?? ""];
 
         preg_match(
-            '/accessories(:|;) {0,}([a-z ]+),?/m',
+            '/accessories: {0,}([a-z ]+);/m',
             $attributes,
             $accessories
         );
 
-        $return[] = ["trait_type" => "accessories", "value" => $accessories[2] ?? ""];
+        $return[] = ["trait_type" => "accessories", "value" => $accessories[1] ?? ""];
 
         preg_match(
-            '/expression(:|;) {0,}([a-z ]+),?/m',
+            '/expression: {0,}([a-z ]+);/m',
             $attributes,
             $expression
         );
 
-        $return[] = ["trait_type" => "expression", "value" => $expression[2] ?? ""];
+        $return[] = ["trait_type" => "expression", "value" => $expression[1] ?? ""];
 
         preg_match(
-            '/strength(:|;) {0,}([a-z ]+),?/m',
+            '/strength: {0,}([a-z ]+);/m',
             $attributes,
             $strength
         );
 
-        $return[] = ["trait_type" => "strength", "value" => $strength[2] ?? ""];
+        $return[] = ["trait_type" => "strength", "value" => $strength[1] ?? ""];
 
         preg_match(
-            '/weakness(:|;) {0,}([a-z ]+),?/m',
+            '/weakness: {0,}([a-z ]+)/m',
             $attributes,
             $weakness
         );
 
-        $return[] = ["trait_type" => "weakness", "value" => $weakness[2] ?? ""];
+        $return[] = ["trait_type" => "weakness", "value" => $weakness[1] ?? ""];
 
         return $return;
     }
