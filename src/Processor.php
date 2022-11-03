@@ -60,6 +60,78 @@ class Processor
         $this->template = json_decode(file_get_contents($template));
     }
 
+    protected function getAttributes(array $entry): array
+    {
+        $return = [];
+        $attributes = $entry['Attributes- Hair. Eyes. Teeth. Clothing. Accessories. Expression. Strength. Weakness'];
+
+        preg_match(
+            '/hair(:|;) {0,}([a-z ]+),?/m',
+            $attributes,
+            $hair
+        );
+
+        $return[] = ["trait_type" => "hair", "value" => $hair[2]];
+
+        preg_match(
+            '/eyes(:|;) {0,}([a-z ]+),?/m',
+            $attributes,
+            $eyes
+        );
+
+        $return[] = ["trait_type" => "eyes", "value" => $eyes[2]];
+
+        preg_match(
+            '/teeth(:|;) {0,}([a-z ]+),?/m',
+            $attributes,
+            $teeth
+        );
+
+        $return[] = ["trait_type" => "teeth", "value" => $teeth[2]];
+
+        preg_match(
+            '/clothing(:|;) {0,}([a-z ]+),?/m',
+            $attributes,
+            $clothing
+        );
+
+        $return[] = ["trait_type" => "clothing", "value" => $clothing[2]];
+
+        preg_match(
+            '/accessories(:|;) {0,}([a-z ]+),?/m',
+            $attributes,
+            $accessories
+        );
+
+        $return[] = ["trait_type" => "accessories", "value" => $accessories[2]];
+
+        preg_match(
+            '/expression(:|;) {0,}([a-z ]+),?/m',
+            $attributes,
+            $expression
+        );
+
+        $return[] = ["trait_type" => "expression", "value" => $expression[2]];
+
+        preg_match(
+            '/strength(:|;) {0,}([a-z ]+),?/m',
+            $attributes,
+            $strength
+        );
+
+        $return[] = ["trait_type" => "strength", "value" => $strength[2]];
+
+        preg_match(
+            '/weakness(:|;) {0,}([a-z ]+),?/m',
+            $attributes,
+            $weakness
+        );
+
+        $return[] = ["trait_type" => "weakness", "value" => $weakness[2]];
+
+        return $return;
+    }
+
     /**
      * Take the data from the CSV file and creates a JSON file for each row in the CSV file
      *
@@ -79,6 +151,10 @@ class Processor
             $entry->series_total = (int)$series_total;
             $entry->attributes = [
                 ["trait_type" => "gender", "value" => $row['Gender']]
+            ];
+            $entry->attributes = [
+                ...$entry->attributes,
+                ...($this->getAttributes($row))
             ];
 
             file_put_contents(

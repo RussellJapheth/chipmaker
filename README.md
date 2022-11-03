@@ -72,9 +72,9 @@ Where `file.csv` is the source csv file and `./output` is the output directory.
 
 **Below is a sample csv file**
 
-> | Series Number | Filename    | Name        | Description           | Gender | UUID                           |
-> | ------------- | ----------- | ----------- | --------------------- | ------ | ------------------------------ |
-> | 1             | sample-file | Sample File | This is a sample file | male   | xxxxxx-xxxxx-xxxxxx-xxxxx-xxxx |
+> | Series Number | Filename    | Name        | Description           | Gender | Attributes- Hair. Eyes. Teeth. Clothing. Accessories. Expression. Strength. Weakness                                                | UUID                           |
+> | ------------- | ----------- | ----------- | --------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+> | 1             | sample-file | Sample File | This is a sample file | male   | "hair: bald, eyes: black, teeth: none, clothing: red, accessories: mask, expression: none, strength: powerful, weakness: curiosity" | xxxxxx-xxxxx-xxxxxx-xxxxx-xxxx |
 
 To display the help screen run
 
