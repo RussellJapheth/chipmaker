@@ -60,6 +60,12 @@ class Processor
         $this->template = json_decode(file_get_contents($template));
     }
 
+    /**
+     * Parse the attributes column for an entry
+     *
+     * @param array $entry The array representation of the row
+     * @return array A properly formatted array for the attributes
+     */
     protected function getAttributes(array $entry): array
     {
         $return = [];
