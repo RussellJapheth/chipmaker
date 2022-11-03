@@ -72,9 +72,9 @@ Where `file.csv` is the source csv file and `./output` is the output directory.
 
 **Below is a sample csv file**
 
-> | Series Number | Filename    | Name        | Description           | Gender | Attributes- Hair. Eyes. Teeth. Clothing. Accessories. Expression. Strength. Weakness                                                | UUID                           |
-> | ------------- | ----------- | ----------- | --------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-> | 1             | sample-file | Sample File | This is a sample file | male   | "hair: bald, eyes: black, teeth: none, clothing: red, accessories: mask, expression: none, strength: powerful, weakness: curiosity" | xxxxxx-xxxxx-xxxxxx-xxxxx-xxxx |
+| TEAM NAMES | Series Number | Filename          | Name              | Description                                 | Gender | Attributes                                                                                                                        | UUID                                 |
+| ---------- | ------------- | ----------------- | ----------------- | ------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| TEAM BEVEL | 1             | adewale-the-amebo | adewale the amebo | Adewale likes to be in everyone's business. | Male   | hair: bald; eyes: black; teeth: none; clothing: red; accessories: mask; expression: none; strength: powerful; weakness: curiosity | cad316c3-37f8-4b27-9f53-9d803bfcfee7 |
 
 To display the help screen run
 

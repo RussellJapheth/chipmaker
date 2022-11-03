@@ -63,7 +63,7 @@ class Processor
     protected function getAttributes(array $entry): array
     {
         $return = [];
-        $attributes = $entry['Attributes- Hair. Eyes. Teeth. Clothing. Accessories. Expression. Strength. Weakness'];
+        $attributes = $entry['Attributes'];
 
         preg_match(
             '/hair(:|;) {0,}([a-z ]+),?/m',
@@ -71,7 +71,7 @@ class Processor
             $hair
         );
 
-        $return[] = ["trait_type" => "hair", "value" => $hair[2]];
+        $return[] = ["trait_type" => "hair", "value" => $hair[2] ?? ""];
 
         preg_match(
             '/eyes(:|;) {0,}([a-z ]+),?/m',
@@ -79,7 +79,7 @@ class Processor
             $eyes
         );
 
-        $return[] = ["trait_type" => "eyes", "value" => $eyes[2]];
+        $return[] = ["trait_type" => "eyes", "value" => $eyes[2] ?? ""];
 
         preg_match(
             '/teeth(:|;) {0,}([a-z ]+),?/m',
@@ -87,7 +87,7 @@ class Processor
             $teeth
         );
 
-        $return[] = ["trait_type" => "teeth", "value" => $teeth[2]];
+        $return[] = ["trait_type" => "teeth", "value" => $teeth[2] ?? ""];
 
         preg_match(
             '/clothing(:|;) {0,}([a-z ]+),?/m',
@@ -95,7 +95,7 @@ class Processor
             $clothing
         );
 
-        $return[] = ["trait_type" => "clothing", "value" => $clothing[2]];
+        $return[] = ["trait_type" => "clothing", "value" => $clothing[2] ?? ""];
 
         preg_match(
             '/accessories(:|;) {0,}([a-z ]+),?/m',
@@ -103,7 +103,7 @@ class Processor
             $accessories
         );
 
-        $return[] = ["trait_type" => "accessories", "value" => $accessories[2]];
+        $return[] = ["trait_type" => "accessories", "value" => $accessories[2] ?? ""];
 
         preg_match(
             '/expression(:|;) {0,}([a-z ]+),?/m',
@@ -111,7 +111,7 @@ class Processor
             $expression
         );
 
-        $return[] = ["trait_type" => "expression", "value" => $expression[2]];
+        $return[] = ["trait_type" => "expression", "value" => $expression[2] ?? ""];
 
         preg_match(
             '/strength(:|;) {0,}([a-z ]+),?/m',
@@ -119,7 +119,7 @@ class Processor
             $strength
         );
 
-        $return[] = ["trait_type" => "strength", "value" => $strength[2]];
+        $return[] = ["trait_type" => "strength", "value" => $strength[2] ?? ""];
 
         preg_match(
             '/weakness(:|;) {0,}([a-z ]+),?/m',
@@ -127,7 +127,7 @@ class Processor
             $weakness
         );
 
-        $return[] = ["trait_type" => "weakness", "value" => $weakness[2]];
+        $return[] = ["trait_type" => "weakness", "value" => $weakness[2] ?? ""];
 
         return $return;
     }
